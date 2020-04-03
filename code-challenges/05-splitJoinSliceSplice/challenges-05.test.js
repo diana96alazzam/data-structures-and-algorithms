@@ -178,6 +178,19 @@ removeLastCharacters('Gregor', 9) returns ''
 
 const removeLastCharacters = (str, numberOfCharacters) => {
   // Solution code here...
+  let charac = str.split('');
+  if (numberOfCharacters > str.length){
+    return '';
+  } else if (numberOfCharacters < 0){
+    return str;
+  } else {
+    for (let i=0; i<numberOfCharacters; i++){
+      charac.pop();
+    }
+    str = charac.join('');
+    console.log(str);
+    return str;
+  }
 };
 
 
