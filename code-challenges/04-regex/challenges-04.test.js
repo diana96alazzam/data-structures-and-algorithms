@@ -27,12 +27,13 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 const isCapitalized = (str) => {
   // Solution code here...
-  let newArr1 = [];
-  let validateCapt = /(\w*[A-Z]\w*)/g;
+  let validateCapt = /\b[A-Z].*?\b/g;
 
-  newArr1= str.match(validateCapt);
-  //   console.log(newArr1);
-  return newArr1;
+  let captWords = str.match(validateCapt);
+  if (captWords === null){
+    return [];
+  }
+  return captWords;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -43,10 +44,17 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
-  let newCities = arr.toSring();
-  let validateCities = /(\w*'[A-J]\w*)/g;
-  console.log(newCities.match(validateCities));
-  return newCities;
+  let citiesString = arr.join(',');
+  citiesString = citiesString.replace(/ /g , '');
+
+  let validateCities =/\b[A-J]\w*\b/g;
+  citiesString = citiesString.match(validateCities);
+
+  if (citiesString === null){
+    return [];
+  }
+
+  return citiesString;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -63,20 +71,9 @@ Do not use the vertical bar (pipe) in your pattern.
 
 const matchMonth = (input) => {
   // Solution code here...
-  let halloweenRegex1 = /\w*October\w*/g;
-  let halloweenRegex2 = /\w*Oct\w*/g;
-  let halloweenRegex3 = /\w*october\w*/g;
-  let halloweenRegex4 = /\w*oct\w*/g;
-  if (halloweenRegex1.test(input)){
-    return true;
-  } else if ((halloweenRegex2).test(input)){
-    return true;
-  } else if ((halloweenRegex3).test(input)){
-    return true;
-  } else if ((halloweenRegex4).test(input)){
-    return true;
-  } else { return false}
-
+  let month = input.toLowerCase();
+  let validateHalloween = /(oct(ober)?)/g;
+  return validateHalloween.test(month);
 };
 
 /* ------------------------------------------------------------------------------------------------
