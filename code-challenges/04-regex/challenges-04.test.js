@@ -71,9 +71,11 @@ Do not use the vertical bar (pipe) in your pattern.
 
 const matchMonth = (input) => {
   // Solution code here...
-  let month = input.toLowerCase();
-  let validateHalloween = /(oct(ober)?)/g;
-  return validateHalloween.test(month);
+  if (typeof input === 'string'){
+    let validateHalloween = /\b([Oo]+ct(ober)?)\b/g;
+    let testHallo = validateHalloween.test(input);
+    return testHallo;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
