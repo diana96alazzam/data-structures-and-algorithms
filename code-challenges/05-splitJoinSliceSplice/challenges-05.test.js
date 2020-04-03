@@ -188,7 +188,6 @@ const removeLastCharacters = (str, numberOfCharacters) => {
       charac.pop();
     }
     str = charac.join('');
-    console.log(str);
     return str;
   }
 };
