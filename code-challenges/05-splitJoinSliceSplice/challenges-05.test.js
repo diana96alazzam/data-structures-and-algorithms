@@ -21,8 +21,6 @@ const howMuchPencil = (str) => {
     let str1= str.slice((i+1), str.length);
     result.push(str1);
   }
-  console.log(result);
-
   return result;
 };
 
@@ -36,6 +34,9 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 
 const wordsToCharList = (arr) => {
   // Solution code here...
+  let list = arr.split('');
+
+  return list;
 };
 
 
@@ -83,6 +84,12 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  let ing = gruffaloCrumble.ingredients;
+  let ingStr = ing.join(' ');
+  let validateIng = /(Gruffalo)|(oats)|(brown sugar)|(flour)|pure maple syrup|chopped nuts|baking soda|baking powder|cinnamon|melted butter|fresh water/g;
+  result = ingStr.match(validateIng);
+
+
   return result;
 };
 
@@ -97,6 +104,12 @@ You may also use other string or array methods.
 const splitFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  let ing = gruffaloCrumble.ingredients;
+  let ingStr = ing.join(' ');
+  let validateIng = /(Gruffalo)|(oats)|(brown sugar)|(flour)|pure maple syrup|chopped nuts|baking soda|baking powder|cinnamon|melted butter|fresh water/g;
+  result = ingStr.match(validateIng);
+
+
   return result;
 };
 
@@ -113,6 +126,11 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 const stepActions = (recipe) => {
   let result = [];
   // Solution code here...
+  let arrStep = gruffaloCrumble.steps;
+  arrStep.forEach(element => {
+    element = element.split(' ');
+    result.push(element[0]);
+  })
   return result;
 };
 
@@ -131,6 +149,16 @@ For example:
 
 const removeEvenValues = (arr) => {
   // Solution code here...
+  let arr1= arr.slice();
+  arr1.forEach(element => {
+    if (element%2 !== 0){
+      arr.shift();
+      arr.push(element);
+    } else {
+      arr.shift();
+    }
+  })
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
