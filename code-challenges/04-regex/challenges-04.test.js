@@ -90,6 +90,18 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 
 const noPunctuation = str => {
   // Solution code here...
+  let puncString = str.replace(/\s+/g , ' ');
+  let puncValidate = /\w* /g;
+
+  let puncArr = puncString.match(puncValidate);
+
+  for(let i = 0; i<puncArr.length; i++){
+    if(puncArr[i] === ' '){
+      puncArr.splice(i,1);
+    }
+  }
+  console.log(puncArr);
+  return puncArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
