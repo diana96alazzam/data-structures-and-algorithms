@@ -31,7 +31,7 @@ const forEachTwoToThe = (arr) => {
     let newArr = [];
     arr.forEach(element => {
         let powRais = 2 ** element;
-        newArr.push(powRais);       
+        newArr.push(powRais);
     });
     return newArr;
 
@@ -45,11 +45,11 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 
 const mapTwoToThe = (arr) => {
     // Solution code here...
-      let newArr = arr.map((value)=> {
-          return 2 ** value;
-          
-      })
-      return newArr
+    let newArr = arr.map((value) => {
+        return 2 ** value;
+
+    })
+    return newArr
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -64,8 +64,7 @@ For example: charCode(['h','i']) returns [104, 105].
 
 const charCode = (arr) => {
     // Solution code here...
-    console.log()
-    let newArr = arr.map((value)=> {
+    let newArr = arr.map((value) => {
         return value.charCodeAt(0);
     })
     return newArr;
@@ -84,6 +83,18 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 
 const evenOdd = (arr) => {
     // Solution code here...
+    let newArr = arr.map((value) => {
+        if (!isNaN(value)) {
+            if (value % 2 == 0) {
+                return 'even';
+            } else if (value % 2 !== 0) {
+                return 'odd';
+            }
+        } else {
+            return 'N/A';
+        }
+    })
+    return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
