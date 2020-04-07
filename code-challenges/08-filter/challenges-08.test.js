@@ -32,7 +32,7 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 const filterStringsWithVowels = (arr) => {
   // Solution code here...
   const newArr = arr.filter(element => {
-      let regTest = /\w*(e|o|a|u|i)\w*/g
+      let regTest = /\w*(e|o|a|u|i)\w*/g // why it didn't work when the regex variable was outside the filter?
       if (regTest.test(element)){
           return element;
       }
@@ -122,7 +122,7 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 const getStatName = (arr, minBaseStat) => {
   // Solution code here...
   let filteredNames = []
-  const newArr = arr.filter(element => {
+  const newArr = arr.filter(element => { // why the filtering didn't work and kept returning the whole object instead of relpacing the object with only the value of the name and is it ok to use push here?
     if (element.baseStat > minBaseStat){
         filteredNames.push(element.stat.name);
     }
@@ -181,6 +181,14 @@ const characters = [
 
 const getCharactersWithoutChildren = (arr) => {
   // Solution code here...
+  //   uses filter to return an array of all characters without children
+  const newArr = arr.filter(element=> {
+      if (!element.children){
+          return element;
+      }
+  })
+  return newArr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
