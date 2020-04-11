@@ -129,9 +129,9 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
-  let filtered = data.filter(element => ((element.gender === 'female') ||(element.gender === 'male')))
-  .map(elm => elm.name)
-  .join(' and ')
+  let filtered = data.filter(element => ((element.gender === 'female') || (element.gender === 'male')))
+    .map(elm => elm.name)
+    .join(' and ')
 
   return filtered;
 };
@@ -144,6 +144,10 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   // Solution code here...
+  let sortedHeights = data.sort((a,b) => a.height-b.height)
+
+  return sortedHeights[0].name;
+
 };
 
 
