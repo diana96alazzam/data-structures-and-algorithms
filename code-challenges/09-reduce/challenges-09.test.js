@@ -178,7 +178,6 @@ const calculateAverage = (arr) => {
     let reduced = arr.reduce((acc, val, idx) => {
         acc.count = idx+1;
         acc.sum = acc.sum + val;
-        console.log(acc);
         return acc;
         
     }, { count: 0, sum: 0 })
@@ -205,6 +204,17 @@ const isPrime = (value) => {
 
 const countPrimeNumbers = (arr) => {
     // Solution code here...
+    let reduced = arr.reduce((acc, val, idx) => {
+
+        if(isPrime(val)){
+            acc = acc+1;
+            return acc;
+        } else {
+            return acc;
+        }
+    }, 0)
+
+    return reduced;
 };
 
 /* ------------------------------------------------------------------------------------------------
