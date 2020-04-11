@@ -76,9 +76,9 @@ let starWarsData = [{
 
 const returnNames = (arr) => {
     // Solution code here...
-    let newArr =[];
+    let newArr = [];
     arr.forEach(element => {
-        newArr.push(element.name);        
+        newArr.push(element.name);
     });
     return newArr;
 };
@@ -95,9 +95,9 @@ const reversedString = (str) => {
     // Solution code here...
     let newArr = []
     let arr = str.split('');
-    
-    for (let i = 0; i<(arr.length+1); i++){
-        newArr.push(arr[arr.length-i])
+
+    for (let i = 0; i < (arr.length + 1); i++) {
+        newArr.push(arr[arr.length - i])
     }
     let hey = newArr.join('');
     return hey;
@@ -154,8 +154,13 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
     // Solution code here...
-    let arr2 = arr.reduce((acc, val, indx) => { 
-        return  acc + acc.children.length;
+    let arr2 = arr.reduce((acc, val, indx) => {
+        if (val.children){
+            acc = acc + val.children.length;
+            return acc ;
+        } else {
+            return acc
+        }
     }, 0)
     return arr2;
 };
