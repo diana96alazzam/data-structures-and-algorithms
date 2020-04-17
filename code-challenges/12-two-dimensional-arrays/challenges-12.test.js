@@ -201,10 +201,10 @@ const lowestWeeklyAverage = (weather) => {
     return sum
   });
 
-  let avgArr = sumArr.map(item => item/7);
+  let avgArr = sumArr.map(item => item / 7);
 
 
-  let sorted = avgArr.sort((a,b)=> a-b);
+  let sorted = avgArr.sort((a, b) => a - b);
 
   return sorted[0];
 
@@ -224,17 +224,29 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 
 const excel = (str) => {
   // Solution code here...
-};
+  let rowsArr = str.split('\n');
+  let newTable = rowsArr.map(item => item.split(','));
+  console.log(newTable);
+  let newArr = newTable.map(item => {
+    let reduced = item.reduce((acc, val, idx) => {
+      val = parseInt(val);
 
+      return acc + val;
+    }, 0)
+    return reduced;
+
+  })
+  return newArr;
+}
 /* ------------------------------------------------------------------------------------------------
 TESTS
-
+ 
 All the code below will verify that your functions are working to solve the challenges.
-
+ 
 DO NOT CHANGE any of the below code.
-
+ 
 Run your tests from the console: jest challenge-12.test.js
-
+ 
 ------------------------------------------------------------------------------------------------ */
 
 
