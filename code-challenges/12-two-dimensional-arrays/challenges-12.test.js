@@ -49,7 +49,7 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 const salesData = (hours, data) => {
   // Solution code here...
   let newArr = data.map((item, idx) => {
-    let objD = {'sales': `${item} cookies`, 'time':hours[idx]};
+    let objD = { 'sales': `${item} cookies`, 'time': hours[idx] };
     return objD
   })
   return newArr;
@@ -78,12 +78,12 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
-  for(let i=0; i<arr.length; i++){
-    for(let j=0; j<arr[i].items.length; j++){
-      if(arr[i].items[j].name === 'Treats'){
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].items.length; j++) {
+      if (arr[i].items[j].name === 'Treats') {
         return arr[i].items[j].quantity;
       }
-      
+
     }
   }
 
@@ -109,11 +109,11 @@ The top row of the board is considered row zero and row numbers increase as they
 
 const battleship = (board, row, col) => {
   //  Solution code here...
-  for(let i=0; i<board.length; i++){
-    for(let j=0; j<board[i].length; j++){
-      if((row===i) && (col===j) && (board[i][j]==='#')){
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board[i].length; j++) {
+      if ((row === i) && (col === j) && (board[i][j] === '#')) {
         return 'hit';
-      } else if ((row===i) && (col===j) && (board[i][j]===' ')) {
+      } else if ((row === i) && (col === j) && (board[i][j] === ' ')) {
         return 'miss';
       }
     }
@@ -131,9 +131,9 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 const calculateProduct = (numbers) => {
   // Solution code here...
   let mult = 1
-  for(let i=0; i<=numbers.length-1; i++){
-    for(let j=0; j<=numbers[i].length-1; j++){
-      mult = mult*numbers[i][j];
+  for (let i = 0; i <= numbers.length - 1; i++) {
+    for (let j = 0; j <= numbers[i].length - 1; j++) {
+      mult = mult * numbers[i][j];
     }
   }
   return mult;
@@ -157,6 +157,21 @@ const weeklyTemperatures = [
 
 const averageDailyTemperature = (weather) => {
   // Solution code here...
+  let sumArr = weather.map((item, idx) => {
+    let sum = 0;
+    for (let i = 0; i < item.length; i++) {
+      sum = sum + item[i];
+    }
+    return sum
+  });
+
+  let sumOfsum = sumArr.reduce((acc, val, idx) => {
+    acc = acc + val
+    return acc
+  })
+
+  return (sumOfsum / (weather.length * 7))
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -178,6 +193,21 @@ let lowestWeeklyTemperatureData = [
 
 const lowestWeeklyAverage = (weather) => {
   // Solution code here...
+  let sumArr = weather.map((item, idx) => {
+    let sum = 0;
+    for (let i = 0; i < item.length; i++) {
+      sum = sum + item[i];
+    }
+    return sum
+  });
+
+  let avgArr = sumArr.map(item => item/7);
+
+
+  let sorted = avgArr.sort((a,b)=> a-b);
+
+  return sorted[0];
+
 };
 
 /* ------------------------------------------------------------------------------------------------
