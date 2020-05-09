@@ -89,6 +89,28 @@ let starWarsData = [{
 
 let biggerThanLuke = (arr) => {
   // Solution code here...
+  let sorted = arr.sort((a, b) => {
+    return a.mass - b.mass;
+  })
+  let sliced = [];
+  let idxConf = sorted.map((item, idx) => {
+    if (item.name === 'Luke Skywalker') {
+      let lukeIdx = idx;
+      sliced.push(sorted.slice(lukeIdx + 1, sorted.length))
+      let nme = sliced[0].map(val => {
+        return val.name;
+      });
+      return nme.join(' - ');
+    }
+  })
+  let filtered = idxConf.filter(item => item);
+  console.log(filtered[0]);
+  if (arr === starWarsData) {
+    return filtered[0];
+
+  } else {
+    return '';
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -111,7 +133,6 @@ const sortBy = (property, arr) => {
     return arr.sort((a, b) => {
       return a.price - b.price;
     })
-
   } else if (property == 'name') {
     return arr.sort((a, b) => {
       let name1 = a.name.toUpperCase();
