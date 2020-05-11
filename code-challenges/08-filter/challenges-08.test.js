@@ -31,8 +31,10 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 const filterStringsWithVowels = (arr) => {
   // Solution code here...
+  
   const newArr = arr.filter(element => {
-      let regTest = /\w*(e|o|a|u|i)\w*/g // why it didn't work when the regex variable was outside the filter?
+    let regTest = /\w*(e|o|a|u|i)\w*/g // why it didn't work when the regex variable was outside the filter?
+    console.log(regTest);
       if (regTest.test(element)){
           return element;
       }
